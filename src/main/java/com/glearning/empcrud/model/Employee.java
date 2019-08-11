@@ -32,6 +32,17 @@ public class Employee implements Serializable, Comparable<Employee>{
     @OneToMany( mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Dependent> dependentSet = new HashSet<>();
 
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public Set<Dependent> getDependentSet() {
         return dependentSet;
     }

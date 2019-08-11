@@ -1,6 +1,7 @@
 package com.glearning.empcrud.client;
 
 import com.glearning.empcrud.controller.EmployeeController;
+import com.glearning.empcrud.model.Address;
 import com.glearning.empcrud.model.Dependent;
 import com.glearning.empcrud.model.Employee;
 import org.springframework.context.ApplicationContext;
@@ -32,6 +33,13 @@ public class EmployeeCRUDClient {
         father.setRelationship("father");
         father.setName("Mohan");
 
+        Address address = new Address();
+        address.setState("Karnataka");
+        address.setCity("Bangalore");
+        address.setZipCode("577142");
+
+        address.setEmployee(employee);
+        employee.setAddress(address);
         //very important
         mother.setEmployee(employee);
         father.setEmployee(employee);
