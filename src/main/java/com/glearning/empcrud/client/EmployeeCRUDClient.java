@@ -38,14 +38,9 @@ public class EmployeeCRUDClient {
         address.setCity("Bangalore");
         address.setZipCode("577142");
 
-        address.setEmployee(employee);
         employee.setAddress(address);
-        //very important
-        mother.setEmployee(employee);
-        father.setEmployee(employee);
-
-        employee.getDependentSet().add(mother);
-        employee.getDependentSet().add(father);
+        employee.addDependent(mother);
+        employee.addDependent(father);
 
         employeeController.saveEmployee(employee);
 

@@ -41,6 +41,7 @@ public class Employee implements Serializable, Comparable<Employee>{
 
     public void setAddress(Address address) {
         this.address = address;
+        address.setEmployee(this);
     }
 
     public Set<Dependent> getDependentSet() {
@@ -92,6 +93,13 @@ public class Employee implements Serializable, Comparable<Employee>{
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public void addDependent(Dependent dependent){
+        this.getDependentSet().add(dependent);
+        dependent.setEmployee(this);
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
