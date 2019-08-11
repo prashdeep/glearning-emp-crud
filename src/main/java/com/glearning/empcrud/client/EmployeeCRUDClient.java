@@ -24,11 +24,13 @@ public class EmployeeCRUDClient {
 
         Dependent mother = new Dependent();
         mother.setAge(50);
+        mother.setRelationship("mother");
         mother.setName("Veena");
 
         Dependent father = new Dependent();
-        mother.setAge(52);
-        mother.setName("Mohan");
+        father.setAge(52);
+        father.setRelationship("father");
+        father.setName("Mohan");
 
         //very important
         mother.setEmployee(employee);

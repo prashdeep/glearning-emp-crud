@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="730f7f3d-34b1-4009-8672-d51c56578603" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/model/Dependent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/model/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/repository/DependentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/client/EmployeeCRUDClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/client/EmployeeCRUDClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/dao/EmployeeDAODBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/dao/EmployeeDAODBImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/service/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/glearning/empcrud/service/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/client/EmployeeCRUDClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/client/EmployeeCRUDClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/dao/EmployeeDAODBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/dao/EmployeeDAODBImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/service/EmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/glearning/empcrud/service/EmployeeServiceImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="730f7f3d-34b1-4009-8672-d51c56578603" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/glearning/empcrud/repository/DependentRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -71,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/glearning/empcrud/client/EmployeeCRUDClient.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="979">
@@ -358,12 +340,12 @@
       <option name="presentableId" value="Default" />
       <updated>1565411803262</updated>
       <workItem from="1565411811204" duration="16762000" />
-      <workItem from="1565456637487" duration="10504000" />
+      <workItem from="1565456637487" duration="11138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27266000" />
+    <option name="totallyTimeSpent" value="27900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -554,16 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/glearning/empcrud/repository/DependentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.9.RELEASE/spring-data-commons-2.0.9.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -646,6 +618,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="979">
           <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/glearning/empcrud/repository/DependentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
