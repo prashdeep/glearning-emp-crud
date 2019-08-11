@@ -3,7 +3,9 @@ package com.glearning.empcrud.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -24,7 +26,19 @@ public class Employee implements Serializable, Comparable<Employee>{
     private int age;
 
     @Column(name = "emp_dob")
+   // @Transient
     private LocalDate dateOfBirth;
+
+    @OneToMany( mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<Dependent> dependentSet = new HashSet<>();
+
+    public Set<Dependent> getDependentSet() {
+        return dependentSet;
+    }
+
+    public void setDependentSet(Set<Dependent> dependentSet) {
+        this.dependentSet = dependentSet;
+    }
 
     public long getEmpId() {
         return empId;

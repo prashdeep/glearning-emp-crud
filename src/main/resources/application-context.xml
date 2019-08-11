@@ -3,9 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <context:component-scan base-package="com.glearning.empcrud"/>
 
@@ -18,7 +22,7 @@
     </bean>
 
     <!-- step 2 -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="packagesToScan" value="com.glearning.empcrud.model"/>
         <property name="dataSource" ref="datasource"/>
         <property name="hibernateProperties">
@@ -29,14 +33,44 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
     <!-- step 3 -->
-    <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <!--<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    </bean> -->
+
 
     <!-- Step 4 -->
-    <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+    <tx:annotation-driven />
+
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <jpa:repositories base-package="com.glearning.empcrud.repository" entity-manager-factory-ref="emf" />
+
+
+    <bean id="emf"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+
+        <property name="packagesToScan" value="com.glearning.empcrud.model" />
+
+        <property name="dataSource" ref="datasource" />
+
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+            </props>
+        </property>
+
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"></bean>
+        </property>
+
+    </bean>
 
 </beans>

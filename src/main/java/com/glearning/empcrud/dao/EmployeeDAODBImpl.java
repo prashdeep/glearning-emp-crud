@@ -3,22 +3,24 @@ package com.glearning.empcrud.dao;
 import com.glearning.empcrud.model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class EmployeeDAODBImpl implements EmployeeDAO {
 
-    @Autowired
+    //@Autowired
     private SessionFactory sessionFactory;
+
 
     @Override
     public Employee saveEmployee(Employee emp) {
         Session currentSession = this.sessionFactory.getCurrentSession();
         currentSession.save(emp);
         return emp;
+
+
     }
 
     @Override

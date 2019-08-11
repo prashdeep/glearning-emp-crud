@@ -2,10 +2,12 @@ package com.glearning.empcrud.service;
 
 import com.glearning.empcrud.dao.EmployeeDAO;
 import com.glearning.empcrud.model.Employee;
+import com.glearning.empcrud.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -13,34 +15,40 @@ import java.util.Set;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    private EmployeeDAO employeeDAO;
+    private EmployeeRepository employeeRepository;
 
     @Override
     @Transactional
     public Employee saveEmployee(Employee employee) {
-        return employeeDAO.saveEmployee(employee);
+        return this.employeeRepository.save(employee);
     }
 
     @Override
     public Optional<Employee> findById(long empId) {
-        return Optional.empty();
+        return this.employeeRepository.findById(empId);
     }
 
     @Override
     @Transactional
     public Set<Employee> listAllEmployees() {
-        return this.employeeDAO.listAllEmployees();
+        Set<Employee> employeeSet = new HashSet<>();
+        this.employeeRepository.findAll().forEach(employee -> {
+            employeeSet.add(employee);
+        });
+        return employeeSet;
+
     }
 
     @Override
     @Transactional
     public void deleteEmployee(long empId) {
-        this.employeeDAO.deleteEmployee(empId);
+        Optional<Employee> employeeOptional = this.employeeRepository.findById(empId);
+        employeeOptional.ifPresent(employee -> employeeRepository.delete(employee));
     }
 
     @Override
     @Transactional
     public Employee updateEmployee(long empId, Employee employee) {
-        return this.employeeDAO.updateEmployee(empId, employee);
+        return this.employeeRepository.save(employee);
     }
 }
