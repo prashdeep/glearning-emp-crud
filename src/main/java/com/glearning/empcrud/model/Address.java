@@ -25,7 +25,7 @@ public class Address {
     }
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "emp_id", nullable = false)
     private Employee employee;
 
     public Long getId() {
