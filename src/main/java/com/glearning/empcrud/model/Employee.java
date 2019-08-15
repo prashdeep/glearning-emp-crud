@@ -29,11 +29,48 @@ public class Employee implements Serializable, Comparable<Employee>{
    // @Transient
     private LocalDate dateOfBirth;
 
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "employee_relationship",
+               joinColumns = @JoinColumn(name = "followed_id"),
+               inverseJoinColumns = @JoinColumn(name = "follower_id")
+    )
+    private Set<Employee> followers = new HashSet<>();
+
+    @ManyToMany(mappedBy = "followers", fetch = FetchType.EAGER)
+    private Set<Employee> following = new HashSet<>();
+
+
+
     @OneToMany( mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Dependent> dependentSet = new HashSet<>();
 
+    @ManyToMany(mappedBy = "employeeSet", cascade = CascadeType.ALL)
+    private Set<Project> projects = new HashSet<>();
+
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private Address address;
+
+    public Set<Employee> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<Employee> followers) {
+        this.followers = followers;
+    }
+
+    public Set<Employee> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<Employee> following) {
+        this.following = following;
+    }
+
+    public void addFollower(Employee employee) {
+        followers.add(employee);
+        employee.following.add(this);
+    }
 
     public Address getAddress() {
         return address;
@@ -58,8 +95,8 @@ public class Employee implements Serializable, Comparable<Employee>{
 
     private Employee(){}
 
-    public Employee(long empId){
-        this.empId = empId;
+    public Employee(String name){
+        this.name = name;
     }
 
     public String getName() {
@@ -99,6 +136,11 @@ public class Employee implements Serializable, Comparable<Employee>{
         dependent.setEmployee(this);
     }
 
+    public void addProject(Project project){
+        this.getProjects().add(project);
+        project.getEmployeeSet().add(this);
+    }
+
 
 
     @Override
@@ -129,5 +171,13 @@ public class Employee implements Serializable, Comparable<Employee>{
                 ", age=" + age +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 }
