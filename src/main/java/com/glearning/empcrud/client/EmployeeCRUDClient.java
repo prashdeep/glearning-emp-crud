@@ -11,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -69,13 +70,15 @@ public class EmployeeCRUDClient {
         employeeController.saveEmployee(employee);
 
 
-        Set<Employee> employees = employeeController.listAllEmployees();
+       /* Set<Employee> employees = employeeController.listAllEmployees();
         Iterator<Employee> iterator = employees.iterator();
         while(iterator.hasNext()){
             Employee employee1 = iterator.next();
             if(employee1.getName().equalsIgnoreCase("linda")){
                 System.out.println(employee1.getFollowers());
             }
-        }
+        }*/
+
+        System.out.println(Arrays.asList(applicationContext.getBeanDefinitionNames()));
     }
 }

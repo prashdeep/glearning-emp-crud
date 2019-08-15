@@ -12,15 +12,19 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
     @Override
+    @Transactional
     public Employee saveEmployee(Employee employee) {
-        return this.employeeRepository.save(employee);
+        Employee save = this.employeeRepository.save(employee);
+        if(true){
+           // throw new NullPointerException("");
+        }
+       return save;
     }
 
     @Override
@@ -39,14 +43,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    //@Transactional
     public void deleteEmployee(long empId) {
         Optional<Employee> employeeOptional = this.employeeRepository.findById(empId);
         employeeOptional.ifPresent(employee -> employeeRepository.delete(employee));
     }
 
     @Override
-    //@Transactional
     public Employee updateEmployee(long empId, Employee employee) {
         return this.employeeRepository.save(employee);
     }

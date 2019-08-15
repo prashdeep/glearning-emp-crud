@@ -4,7 +4,6 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -19,7 +18,10 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("com.glearning.empcrud")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository")
+@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
+            transactionManagerRef = "txManager",
+        entityManagerFactoryRef = "emf")
+
 public class AppConfig {
 
     @Bean
@@ -33,7 +35,7 @@ public class AppConfig {
     }
 
 
-    @Bean(name = "entityManagerFactory")
+    @Bean(name = "emf")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
@@ -46,7 +48,7 @@ public class AppConfig {
         return em;
     }
 
-    @Bean
+    @Bean(value = "txManager")
     public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
