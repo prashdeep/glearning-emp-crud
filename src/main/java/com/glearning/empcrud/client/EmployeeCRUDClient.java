@@ -1,11 +1,13 @@
 package com.glearning.empcrud.client;
 
+import com.glearning.empcrud.config.AppConfig;
 import com.glearning.empcrud.controller.EmployeeController;
 import com.glearning.empcrud.model.Address;
 import com.glearning.empcrud.model.Dependent;
 import com.glearning.empcrud.model.Employee;
 import com.glearning.empcrud.model.Project;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
@@ -15,8 +17,9 @@ import java.util.Set;
 public class EmployeeCRUDClient {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext("application-context.xml");
+        //ApplicationContext applicationContext =
+          //      new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
 
         Employee employee = new Employee("Vishnu");

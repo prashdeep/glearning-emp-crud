@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
