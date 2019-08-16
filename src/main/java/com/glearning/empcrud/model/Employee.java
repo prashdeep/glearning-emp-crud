@@ -93,7 +93,7 @@ public class Employee implements Serializable, Comparable<Employee>{
         return empId;
     }
 
-    private Employee(){}
+    public Employee(){}
 
     public Employee(String name){
         this.name = name;

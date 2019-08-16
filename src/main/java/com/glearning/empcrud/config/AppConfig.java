@@ -15,12 +15,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
-@ComponentScan("com.glearning.empcrud")
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
-            transactionManagerRef = "txManager",
-        entityManagerFactoryRef = "emf")
+//@Configuration
+//@ComponentScan("com.glearning.empcrud")
+//@EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
+  //          transactionManagerRef = "txManager",
+    //    entityManagerFactoryRef = "emf")
 
 public class AppConfig {
 
@@ -39,6 +39,7 @@ public class AppConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
+
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[]{"com.glearning.empcrud.model"});
 

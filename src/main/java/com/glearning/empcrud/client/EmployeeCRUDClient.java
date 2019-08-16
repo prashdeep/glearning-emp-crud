@@ -67,7 +67,7 @@ public class EmployeeCRUDClient {
         employee.addProject(javaProject);
         employee.addProject(dotnetProject);
 
-        employeeController.saveEmployee(employee);
+        //employeeController.saveEmployee(employee);
 
 
        /* Set<Employee> employees = employeeController.listAllEmployees();
