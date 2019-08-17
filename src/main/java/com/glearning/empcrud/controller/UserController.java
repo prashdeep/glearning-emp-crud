@@ -5,6 +5,10 @@ import com.glearning.empcrud.model.User;
 import com.glearning.empcrud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
 
@@ -12,7 +16,8 @@ import java.util.Set;
    bean id ="usercontroller" class="">
       <propery name="userService" ref="userService"
  */
-@Component(value="usercontroller")
+@RestController
+@RequestMapping("/users/")
 public class UserController {
 
     @Autowired
@@ -26,7 +31,8 @@ public class UserController {
         this.userService.addTweet(userId, tweet);
     }
 
-    public Set<Tweet> fetchTweetsByUserId(long userId){
+    @GetMapping("/{id}/")
+    public Set<Tweet> fetchTweetsByUserId(@PathVariable("id") long userId){
         return this.userService.getAllTweetsByUserId(userId);
     }
 

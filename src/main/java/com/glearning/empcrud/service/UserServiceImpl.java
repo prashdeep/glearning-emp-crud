@@ -65,4 +65,9 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public Set<Tweet> getTweetsByFollowerId(long follwerId) {
+        return null;
+    }
 }

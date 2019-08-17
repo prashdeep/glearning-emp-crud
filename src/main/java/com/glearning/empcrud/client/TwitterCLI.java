@@ -42,9 +42,10 @@ public class TwitterCLI {
 
         userController.saveUser(rahul);
 
-        Set<User> following = userController.getFollowing(mohan.getUserId());
+        //Set<User> following = userController.getFollowing(mohan.getUserId());
 
-        following.forEach((user -> System.out.println(user.getName())));
+        //following.forEach((user -> System.out.println(user.getName())));
+        userController.fetchTweetsByUserId(rahul.getUserId()).forEach(tweet1 -> System.out.println(tweet1.getMessage()));
 
 
 

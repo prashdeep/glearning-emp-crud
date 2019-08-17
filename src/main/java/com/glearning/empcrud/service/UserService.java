@@ -16,4 +16,6 @@ public interface UserService {
     Set<User> getFollowersByUserId(long userId);
 
     Set<User> getFollowingByUserId(long userId);
+
+    Set<Tweet> getTweetsByFollowerId(long follwerId);
 }
