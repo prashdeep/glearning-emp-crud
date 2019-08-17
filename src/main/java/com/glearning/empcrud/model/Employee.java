@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -28,6 +29,10 @@ public class Employee implements Serializable, Comparable<Employee>{
     @Column(name = "emp_dob")
    // @Transient
     private LocalDate dateOfBirth;
+
+    @ElementCollection
+    @CollectionTable(name="phone_numbers", joinColumns = @JoinColumn(name = "emp_id"))
+    private List<String> phoneNumbers;
 
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
