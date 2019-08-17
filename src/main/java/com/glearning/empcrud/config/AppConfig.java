@@ -21,16 +21,23 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//@Configuration
-//@ComponentScan("com.glearning.empcrud")
-//@EnableTransactionManagement
-//@EnableWebMvc
-//@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
-  //          transactionManagerRef = "txManager",
-   //     entityManagerFactoryRef = "emf")
+@Configuration
+@ComponentScan("com.glearning.empcrud")
+@EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
+            transactionManagerRef = "txManager",
+            entityManagerFactoryRef = "emf")
 
 public class AppConfig {
 
+    /*
+        <bean id="datasource" class="org.apache.commons.dbcp2.BasicDataSource">
+          <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+          <property name="username" value="root"/>
+          <property name="password" value="welcome"/>
+          <property name="url" value="jdbc:mysql://localhost:3306/emp_db"/>
+        </bean>
+     */
     @Bean
     DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
@@ -41,7 +48,29 @@ public class AppConfig {
         return dataSource;
     }
 
+    /*
+         <bean id="emf"
+             class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
+            <property name="packagesToScan" value="com.glearning.empcrud.model" />
+
+            <property name="dataSource" ref="datasource" />
+
+            <property name="jpaProperties">
+                <props>
+                    <prop key="hibernate.show_sql">true</prop>
+                    <prop key="hibernate.format_sql">true</prop>
+                    <prop key="hibernate.hbm2ddl.auto">create</prop>
+                    <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+                </props>
+            </property>
+
+            <property name="persistenceProvider">
+                <bean class="org.hibernate.jpa.HibernatePersistenceProvider"></bean>
+            </property>
+
+        </bean>
+     */
     @Bean(name = "emf")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em

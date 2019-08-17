@@ -1,9 +1,11 @@
 package com.glearning.empcrud.client;
 
+import com.glearning.empcrud.config.AppConfig;
 import com.glearning.empcrud.controller.UserController;
 import com.glearning.empcrud.model.Tweet;
 import com.glearning.empcrud.model.User;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ import java.util.Set;
 public class TwitterCLI {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         UserController userController = applicationContext.getBean(UserController.class);
 
         User rahul = new User("rahul");

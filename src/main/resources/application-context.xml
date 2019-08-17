@@ -45,7 +45,7 @@
 
 
     <!-- Step 4 -->
-    <tx:annotation-driven />
+    <tx:annotation-driven  transaction-manager="transactionManager"/>
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
         <property name="dataSource" ref="datasource"/>
