@@ -2,10 +2,7 @@ package com.glearning.empcrud.client;
 
 import com.glearning.empcrud.config.AppConfig;
 import com.glearning.empcrud.controller.EmployeeController;
-import com.glearning.empcrud.model.Address;
-import com.glearning.empcrud.model.Dependent;
-import com.glearning.empcrud.model.Employee;
-import com.glearning.empcrud.model.Project;
+import com.glearning.empcrud.model.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,9 +15,9 @@ import java.util.Set;
 public class EmployeeCRUDClient {
 
     public static void main(String[] args) {
-        //ApplicationContext applicationContext =
-          //      new ClassPathXmlApplicationContext("application-context.xml");
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext applicationContext =
+              new ClassPathXmlApplicationContext("application-context.xml");
+       /* ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
 
         Employee employee = new Employee("Vishnu");
@@ -70,7 +67,7 @@ public class EmployeeCRUDClient {
         employeeController.saveEmployee(employee);
 
 
-       /* Set<Employee> employees = employeeController.listAllEmployees();
+        Set<Employee> employees = employeeController.listAllEmployees();
         Iterator<Employee> iterator = employees.iterator();
         while(iterator.hasNext()){
             Employee employee1 = iterator.next();
@@ -79,6 +76,20 @@ public class EmployeeCRUDClient {
             }
         }*/
 
-        System.out.println(Arrays.asList(applicationContext.getBeanDefinitionNames()));
-    }
+        Customer fromCustomer = new Customer();
+        fromCustomer.setName("FROM");
+
+        Customer toCustomer = new Customer();
+        toCustomer.setName("TO");
+
+        Transaction transaction = new Transaction();
+
+
+        fromCustomer.doTransaction(transaction, toCustomer);
+
+
+
+
+     }
+
 }

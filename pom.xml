@@ -70,6 +70,10 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.4.Final</version>
         </dependency>
+        <dependency>
+            <groupId>webjar</groupId>
+            <artifactId></artifactId>
+        </dependency>
     </dependencies>
 
 
