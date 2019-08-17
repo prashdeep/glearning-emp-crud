@@ -11,6 +11,12 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -18,9 +24,10 @@ import java.util.Properties;
 //@Configuration
 //@ComponentScan("com.glearning.empcrud")
 //@EnableTransactionManagement
+//@EnableWebMvc
 //@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
   //          transactionManagerRef = "txManager",
-    //    entityManagerFactoryRef = "emf")
+   //     entityManagerFactoryRef = "emf")
 
 public class AppConfig {
 
@@ -65,5 +72,13 @@ public class AppConfig {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
 
         return properties;
+    }
+
+    @Bean
+    public ViewResolver getViewResovler() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();        urlBasedViewResolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
     }
 }
