@@ -33,4 +33,8 @@ public class UserController {
     public Set<User> getFollowers(long userId){
         return this.userService.getFollowersByUserId(userId);
     }
+
+    public Set<User> getFollowing(long userId) {
+        return this.userService.getFollowingByUserId(userId);
+    }
 }

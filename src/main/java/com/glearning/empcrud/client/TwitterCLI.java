@@ -32,7 +32,7 @@ public class TwitterCLI {
         User mohan = new User("mohan");
         User vikaram = new User("vikram");
 
-        rahul.setName("RahuKumar");
+
 
 
         rahul.addFollower(mohan);
@@ -40,9 +40,9 @@ public class TwitterCLI {
 
         userController.saveUser(rahul);
 
-        Set<User> followers = userController.getFollowers(rahul.getUserId());
+        Set<User> following = userController.getFollowing(mohan.getUserId());
 
-        followers.forEach((user -> System.out.println(user.getName())));
+        following.forEach((user -> System.out.println(user.getName())));
 
 
 

@@ -25,7 +25,7 @@ public class User {
     @Column(name = "dob")
     private LocalDate dateOfBirth;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Tweet> tweets = new HashSet<>();
 
 
@@ -37,7 +37,7 @@ public class User {
     private Set<User> followers = new HashSet<>();
 
 
-    @ManyToMany(mappedBy = "followers", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "followers", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<User> following = new HashSet<>();
 
     public Set<User> getFollowers() {

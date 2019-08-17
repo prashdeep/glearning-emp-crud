@@ -58,6 +58,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Set<User> getFollowingByUserId(long userId) {
+        Optional<User> userOptional = this.userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getFollowing();
+        }
         return null;
     }
 }
