@@ -29,16 +29,16 @@ public class User {
     private Set<Tweet> tweets = new HashSet<>();
 
 
-   /* @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="users_followers",
-     joinColumns = @JoinColumn(name = "follower_id", referencedColumnName = "followers"),
-     inverseJoinColumns = @JoinColumn(name = "following_id", referencedColumnName = "following"))
+     joinColumns = @JoinColumn(name = "followers"),
+     inverseJoinColumns = @JoinColumn(name = "following"))
 
-    private Set<User> followers;
+    private Set<User> followers = new HashSet<>();
 
 
     @ManyToMany(mappedBy = "followers", cascade = CascadeType.ALL)
-    private Set<User> following;
+    private Set<User> following = new HashSet<>();
 
     public Set<User> getFollowers() {
         return followers;
@@ -60,7 +60,7 @@ public class User {
         follower.getFollowing().add(this);
         this.getFollowers().add(follower);
     }
-*/
+
 
     public long getUserId() {
         return userId;

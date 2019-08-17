@@ -14,8 +14,8 @@ public class TwitterCLI {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
         UserController userController = applicationContext.getBean(UserController.class);
 
-        User user = new User("rahul");
-        user.setDateOfBirth(LocalDate.of(2000, 10,10));
+        User rahul = new User("rahul");
+        rahul.setDateOfBirth(LocalDate.of(2000, 10,10));
 
         Tweet tweet = new Tweet();
         tweet.setMessage("Hello world message");
@@ -25,10 +25,16 @@ public class TwitterCLI {
         tweet2.setMessage("My second tweet to the universe !!");
         tweet2.setCreatedDate(LocalDate.now());
 
-        user.addTweet(tweet);
-        user.addTweet(tweet2);
+        rahul.addTweet(tweet);
+        rahul.addTweet(tweet2);
 
-        userController.saveUser(user);
+        User mohan = new User("mohan");
+        User vikaram = new User("vikram");
+
+        rahul.addFollower(mohan);
+        rahul.addFollower(vikaram);
+
+        userController.saveUser(rahul);
 
 
 
