@@ -146,8 +146,6 @@ public class Employee implements Serializable, Comparable<Employee>{
         project.getEmployeeSet().add(this);
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -20,10 +20,9 @@ public class Project {
 
 
     @ManyToMany()
-    @JoinTable(name = "employee_projects",
-               joinColumns = @JoinColumn(name="project_id", referencedColumnName = "projectId"),
-               inverseJoinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "emp_id")
-    )
+    @JoinTable(name = "employee_project",
+    joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "projectId"),
+    inverseJoinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "empId"))
     private Set<Employee> employeeSet = new HashSet<>();
 
     public long getProjectId() {
