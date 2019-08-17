@@ -16,18 +16,20 @@ public class User {
 
     private String name;
 
-    User(){
-        tweets = new HashSet<>();
+    private User(){}
+
+    public User(String name){
+        this.name = name;
     }
 
     @Column(name = "dob")
     private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Tweet> tweets;
+    private Set<Tweet> tweets = new HashSet<>();
 
 
-    @ManyToMany()
+   /* @ManyToMany()
     @JoinTable(name="users_followers",
      joinColumns = @JoinColumn(name = "follower_id", referencedColumnName = "followers"),
      inverseJoinColumns = @JoinColumn(name = "following_id", referencedColumnName = "following"))
@@ -58,7 +60,7 @@ public class User {
         follower.getFollowing().add(this);
         this.getFollowers().add(follower);
     }
-
+*/
 
     public long getUserId() {
         return userId;

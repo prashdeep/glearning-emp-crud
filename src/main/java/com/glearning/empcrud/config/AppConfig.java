@@ -74,11 +74,11 @@ public class AppConfig {
         return properties;
     }
 
-    @Bean
+    /*@Bean
     public ViewResolver getViewResovler() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();        urlBasedViewResolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         return resolver;
-    }
+    }*/
 }
