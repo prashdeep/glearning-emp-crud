@@ -11,18 +11,18 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.glearning.empcrud"/>
+   <!-- <context:component-scan base-package="com.glearning.empcrud"/>
 
 
-   <!-- <mvc:annotation-driven /> -->
+     <mvc:annotation-driven />-->
 
     <!-- Step 1 -->
-    <bean id="datasource" class="org.apache.commons.dbcp2.BasicDataSource">
+   <!-- <bean id="datasource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="username" value="root"/>
         <property name="password" value="welcome"/>
         <property name="url" value="jdbc:mysql://localhost:3306/emp_db"/>
-    </bean>
+    </bean>-->
 
     <!-- step 2 -->
     <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -45,7 +45,7 @@
 
 
     <!-- Step 4 -->
-    <tx:annotation-driven  transaction-manager="transactionManager"/>
+    <!--<tx:annotation-driven />
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
         <property name="dataSource" ref="datasource"/>
@@ -77,9 +77,9 @@
     </bean>
 
 
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
-    </bean> -->
+    </bean>-->
 
 </beans>

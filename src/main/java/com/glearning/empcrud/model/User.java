@@ -1,6 +1,9 @@
 package com.glearning.empcrud.model;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -14,9 +17,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
 
+    @NotBlank
     private String name;
 
-    private User(){}
+    @Range(min = 18)
+    private int age;
+
+    public User(){}
 
     public User(String name){
         this.name = name;
@@ -84,6 +91,14 @@ public class User {
 
     public Set<Tweet> getTweets() {
         return tweets;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void addTweet(Tweet tweet){

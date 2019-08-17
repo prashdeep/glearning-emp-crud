@@ -14,7 +14,8 @@ import java.util.Set;
 public class TwitterCLI {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+       // ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:application-context.xml");
         UserController userController = applicationContext.getBean(UserController.class);
 
         User rahul = new User("rahul");

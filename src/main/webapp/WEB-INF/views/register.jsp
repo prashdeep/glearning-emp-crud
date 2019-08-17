@@ -19,10 +19,11 @@
 </head>
 <body>
 <div class="container">
-    <form:form action="/emp-mvc/register" method="POST" modelAttribute="employee">
+    <form:form action="/submit" method="POST" modelAttribute="user">
         <div class="form-group">
-            <label>Name:</label><form:input path="name" size="30" cssClass="form-control" placeholder="Enter name"/>
-            <small><form:errors path="name" cssClass="error"/></small>
+            <label>Name:</label>
+              <form:input path="name" size="30" cssClass="form-control" placeholder="Enter name"/>
+              <small><form:errors path="name" cssClass="error"/></small>
         </div>
         <div class="form-group">
             <label>Age:</label><form:input path="age" cssClass="form-control" placeholder="Enter age"/>

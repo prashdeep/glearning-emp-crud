@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -69,5 +70,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Set<Tweet> getTweetsByFollowerId(long follwerId) {
         return null;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
     }
 }

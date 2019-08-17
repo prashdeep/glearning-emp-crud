@@ -16,8 +16,7 @@ import java.util.Set;
    bean id ="usercontroller" class="">
       <propery name="userService" ref="userService"
  */
-@RestController
-@RequestMapping("/users/")
+@Component
 public class UserController {
 
     @Autowired
