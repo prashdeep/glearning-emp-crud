@@ -29,7 +29,7 @@ public class User {
     private Set<Tweet> tweets = new HashSet<>();
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="users_followers",
      joinColumns = @JoinColumn(name = "followers"),
      inverseJoinColumns = @JoinColumn(name = "following"))

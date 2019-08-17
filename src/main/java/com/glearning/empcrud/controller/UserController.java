@@ -29,4 +29,8 @@ public class UserController {
     public Set<Tweet> fetchTweetsByUserId(long userId){
         return this.userService.getAllTweetsByUserId(userId);
     }
+
+    public Set<User> getFollowers(long userId){
+        return this.userService.getFollowersByUserId(userId);
+    }
 }

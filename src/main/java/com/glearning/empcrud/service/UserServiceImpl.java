@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    public void updateUser(User user){
+        this.userRepository.save(user);
+    }
+
+
     @Override
     public void addTweet(long userId, Tweet tweet) {
         Optional<User> userOptional = this.userRepository.findById(userId);
@@ -43,6 +48,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Set<User> getFollowersByUserId(long userId) {
+        Optional<User> userOptional = this.userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getFollowers();
+        }
         return null;
     }
 

@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class TwitterCLI {
 
@@ -31,10 +32,17 @@ public class TwitterCLI {
         User mohan = new User("mohan");
         User vikaram = new User("vikram");
 
+        rahul.setName("RahuKumar");
+
+
         rahul.addFollower(mohan);
         rahul.addFollower(vikaram);
 
         userController.saveUser(rahul);
+
+        Set<User> followers = userController.getFollowers(rahul.getUserId());
+
+        followers.forEach((user -> System.out.println(user.getName())));
 
 
 
