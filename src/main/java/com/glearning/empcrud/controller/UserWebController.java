@@ -58,4 +58,13 @@ public class UserWebController {
         return "tweets";
     }
 
+    /*
+       @PostMapping
+        method which accepts twee from the form
+        and saves to the database
+        tweet message
+        size: max 150characters
+
+     */
+
 }

@@ -23,7 +23,7 @@
 
     <ul>
         <c:forEach var="user" items="${users}">
-         <li>${user.name}</li>
+         <li><a href="/users/${user.userId}/tweets">${user.name}</a></li>
         </c:forEach>
     </ul>
 
