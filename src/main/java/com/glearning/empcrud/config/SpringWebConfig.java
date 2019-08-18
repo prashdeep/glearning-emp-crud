@@ -9,12 +9,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan(basePackages = "com.glearning.empcrud")
+//@Configuration
+//@EnableWebMvc
+//@ComponentScan(basePackages = "com.glearning.empcrud")
 public class SpringWebConfig implements WebMvcConfigurer {
 
-    @Bean
+   // @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setPrefix("/WEB-INF/views/");
@@ -22,7 +22,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
         return internalResourceViewResolver;
     }
 
-    @Override
+   // @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
     }

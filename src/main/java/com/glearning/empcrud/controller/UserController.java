@@ -30,7 +30,6 @@ public class UserController {
         this.userService.addTweet(userId, tweet);
     }
 
-    @GetMapping("/{id}/")
     public Set<Tweet> fetchTweetsByUserId(@PathVariable("id") long userId){
         return this.userService.getAllTweetsByUserId(userId);
     }

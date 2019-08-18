@@ -17,10 +17,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
 
-    @NotBlank
+    @NotBlank(message = "Name cannot be empty")
     private String name;
 
-    @Range(min = 18)
+    @Range(min = 18, max = 60, message = "Age should be greater than 18")
     private int age;
 
     public User(){}
@@ -74,7 +74,7 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {

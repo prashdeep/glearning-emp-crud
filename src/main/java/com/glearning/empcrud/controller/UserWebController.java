@@ -9,10 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.List;
+import  java.util.List;
 
 @Controller
 public class UserWebController {
@@ -21,27 +20,32 @@ public class UserWebController {
     private UserService userService;
 
     @GetMapping("/")
-    public String displayHomePage(Model model){
-        List<User> users = this.userService.getAllUsers();
-        model.addAttribute("users", users);
-        return "home";
+    public String displayHomePage(){
+        return "welcome";
+    }
+
+    @GetMapping("/users")
+    public String listUsers(Model model){
+        List<User> listOfUsers = this.userService.getAllUsers();
+
+        model.addAttribute("users", listOfUsers);
+        return "list";
     }
 
     @GetMapping("/register")
-    public String register(Model model){
+    public String registrationPage(Model model){
         model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/submit")
-    public String registetUser(@Valid @ModelAttribute User user, BindingResult bindingResult){
-
+    public String registerUser( @Valid @ModelAttribute("user") User user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "register";
         }
         this.userService.saveUser(user);
-        return "redirect:/";
+        return "redirect:/users";// redirect the url
+        //dont use the redirecr: forwarded and the url will not change
     }
-
 
 }

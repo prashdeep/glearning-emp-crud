@@ -19,20 +19,30 @@
 </head>
 <body>
 <div class="container">
-    <form:form action="/submit" method="POST" modelAttribute="user">
-        <div class="form-group">
-            <label>Name:</label>
-              <form:input path="name" size="30" cssClass="form-control" placeholder="Enter name"/>
-              <small><form:errors path="name" cssClass="error"/></small>
-        </div>
-        <div class="form-group">
-            <label>Age:</label><form:input path="age" cssClass="form-control" placeholder="Enter age"/>
-            <small><form:errors path="age" cssClass="error"/></small>
-        </div>
-        <div class="form-group">
-            <button type="submit">Submit</button>
-        </div>
+
+    <form:form action="/submit" method="post" modelAttribute="user">
+        <label>Name</label>
+        <form:input path="name" placeholder="Enter your name"/>
+        <form:errors path="name" cssClass="error"/></small>
+        <label>Age</label>
+        <form:input path="age" placeholder = "Enter your age"/>
+        <form:errors path="age" cssClass="error"/></small>
+        <button type="submit">Submit</button>
     </form:form>
+    <%--<form:form action="/submit" method="POST" >--%>
+        <%--<div class="form-group">--%>
+            <%--<label>Name:</label>--%>
+              <%--<form:input path="name" size="30" cssClass="form-control" placeholder="Enter name"/>--%>
+              <%--<small><form:errors path="name" cssClass="error"/></small>--%>
+        <%--</div>--%>
+        <%--<div class="form-group">--%>
+            <%--<label>Age:</label><form:input path="age" cssClass="form-control" placeholder="Enter age"/>--%>
+            <%--<small><form:errors path="age" cssClass="error"/></small>--%>
+        <%--</div>--%>
+        <%--<div class="form-group">--%>
+            <%--<button type="submit">Submit</button>--%>
+        <%--</div>--%>
+    <%--</form:form>--%>
 </div>
 
 </body>
