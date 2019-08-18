@@ -1,5 +1,6 @@
 package com.glearning.empcrud.controller;
 
+import com.glearning.empcrud.model.Tweet;
 import com.glearning.empcrud.model.User;
 import com.glearning.empcrud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import  java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserWebController {
@@ -46,6 +49,13 @@ public class UserWebController {
         this.userService.saveUser(user);
         return "redirect:/users";// redirect the url
         //dont use the redirecr: forwarded and the url will not change
+    }
+
+    @GetMapping("/users/{id}/tweets")
+    public String getAllTweetsByUserId(@PathVariable("id") long userId, Model model){
+        Set<Tweet> tweets = this.userService.getAllTweetsByUserId(userId);
+        model.addAttribute("tweets", tweets);
+        return "tweets";
     }
 
 }
