@@ -21,12 +21,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//@Configuration
-//@ComponentScan("com.glearning.empcrud")
-//@EnableTransactionManagement
-//@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
-  //          transactionManagerRef = "txManager",
-    //        entityManagerFactoryRef = "emf")
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.glearning.empcrud.repository",
+            transactionManagerRef = "txManager",
+            entityManagerFactoryRef = "emf")
 
 public class AppConfig {
 
@@ -40,6 +39,7 @@ public class AppConfig {
      */
     @Bean
     DataSource dataSource() {
+        System.out.println("***********************");
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
@@ -103,11 +103,5 @@ public class AppConfig {
         return properties;
     }
 
-    /*@Bean
-    public ViewResolver getViewResovler() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();        urlBasedViewResolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }*/
+
 }
